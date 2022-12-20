@@ -1,0 +1,348 @@
+/* --------Обнуление-------- */
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;    
+}
+body{
+    overflow-x: hidden;
+}
+a {
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+/* --------для всей страницы--------- */
+.content{    
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;    
+}
+@font-face {
+    font-family: Arial;
+    src: url(../../assets/fonts/ArialMT.ttf);
+    font-style:normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Arial;
+    src: url(../../assets/fonts/Arial-ItalicMT.ttf);
+    font-style:italic;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Georgia;
+    src: url(../../assets/fonts/Georgia.ttf);
+    font-style:normal;
+    font-weight:400;
+}
+h2 {
+    font:normal 400 25px/1.3em Georgia;
+    letter-spacing: 0.06em;
+}
+h3 {
+    font:normal 400 20px/1em Georgia;
+    letter-spacing: 0.06em;
+    color: #545454;
+}
+p {
+    font:normal 400 15px/1.6em Arial; 
+}
+/* ---------заголовок и стартовый экран--------- */
+.start_screen{    
+    background:url(../../assets/images/background.png),radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) center round;
+}
+.header{    
+    margin-top: 31px;    
+    transition: right 3s ease 0s;     
+}
+h1,.sub_mob_menu a{
+    font: normal 400 32px/1.1em Georgia;
+    letter-spacing: 0.06em;
+    color: #F1CDB3; 
+}
+
+.sub_header p, .sub_mob_menu p{
+    padding-left: 4px;
+    font: normal 400 13px/1.15em Arial;
+    letter-spacing: 0.10em;
+    color: #FFFFFF;
+    padding-top:10px;
+}
+/* -------- для бургер-меню------ */
+#burger_menu{
+    display: none;    
+}
+body.push{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+label{    
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 22px;
+    right: 53px;
+    top: 49px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+    z-index: 5;   
+}
+.btn_burger:before,
+.btn_burger:after{
+    content: ' ';
+    background-color: #F1CDB3;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    right: 0;
+}
+.btn_burger:before{
+    top: 0;
+}
+.btn_burger:after{
+    bottom: 0;
+}
+.btn_burger span{     
+    background-color: #F1CDB3;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 10px;
+    right: 0;
+}
+.menu{ 
+    display: none;  
+    position: absolute;
+    right:-100%;
+    height: 100vh;    
+    top: 0;    
+    background-color: #292929;
+    transition:3s;
+    max-width: 320px;
+    min-width: 320px;
+    transition: all 0.5s ease 0s;
+    overflow: auto;       
+}
+.sub_mob_menu{
+    padding-top: 31px;
+    padding-left: 10px;    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 159px;
+    text-align: center; 
+}
+.sub_mob_menu a{
+    text-decoration: none;
+    font: normal 400 32px/1.1em Georgia;
+    letter-spacing: 0.06em;
+    color: #F1CDB3;
+}
+
+.menu ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-left: 39px;
+    padding-right: 38px;
+}
+.menu li {    
+    font:normal 400 32px/1.6em Arial;    
+    color: #FAFAFA;    
+}
+.link {
+    color: #CDCDCD;
+    cursor: pointer;   
+}
+.link:hover{
+    color:#FAFAFA;
+    cursor: pointer;
+}
+.link span{
+    padding-bottom: 5px;
+    border-bottom: 3px solid #F1CDB3;
+    color:#FAFAFA;
+}
+#burger_menu:checked ~ label{
+    transform: rotate(-90deg);
+    right: 54px;
+    top:50px;
+}
+#burger_menu:checked ~ .header > .sub_header{
+    display: none;    
+}
+
+#burger_menu:checked ~ .header > .menu{
+    display: block;
+    right: 0;
+    z-index: 2;    
+}
+#burger_menu:checked ~ .shadow{
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(41,41,41,0.6);
+    z-index: 0;
+    top: 0;
+    left: 0;    
+    overflow: hidden;
+}
+/* --------стартовый экран-------- */
+.start_screen_content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 59px;
+    align-items: flex-end;
+    text-align: center;    
+}
+.start_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center; 
+    gap: 42px;    
+}
+.start_text h2{       
+    color: #FFFFFF;    
+}
+.start_text p{      
+    color: #CDCDCD;
+}
+
+.start_img{
+    display: flex;    
+    max-width: 86.67%;
+    margin-top: 105px;
+}
+.start_img img{    
+    width: 100%;
+    height: 100%;
+}
+/* ---------- кнопки------------- */
+.btn_make_friends,.btn_get_to_know{    
+    font:normal 400 17px/1.3em Georgia;
+    letter-spacing: 0.06em;    
+    padding: 15px 45px 15px 45px;
+    border-radius: 100px;     
+    color:#292929;
+    background:#F1CDB3;
+    text-decoration: none;
+}
+.btn_make_friends:hover,
+.btn_get_to_know:hover{
+    background: #FDDCC4;
+}
+/* ------------ блок about ---------- */
+.about{
+    background-color: #FFFFFF; 
+}
+.about_content{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    text-align: center;
+    gap: 41px;
+}
+.about_text{
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    text-align: justify;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #4C4C4C;
+}
+.about_text h2{
+    color: #545454;
+    text-align: center;
+}
+.about_img{
+    display: flex; 
+    max-width: 86.67%;    
+}
+.about_img img{
+    width: 100%;
+    height: 100%;
+}
+/* --------- Блок Our friends ---------- */
+.pets {
+    background-color: #F6F6F6;
+}
+.pets_slider_content{
+    position: relative;
+    max-width: 270px;
+    min-width: 270px;
+}
+.pets_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    text-align: center;
+    color:#545454;
+    gap: 42px;
+}
+.slider{
+    display: flex; 
+}
+.card{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 31px;
+    border-radius: 9px;
+    align-items: center;
+    padding-bottom: 30px;
+    margin-bottom: 73px;
+    background-color: #FAFAFA;
+}
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);   
+}
+.learn_more{
+    width: 187px;
+    height: 52px;    
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+    background-color: transparent;
+    font:normal 400 17px/1.3em Georgia;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+}
+.learn_more:hover{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+    cursor: pointer;
+    color: #292929
+}
+.arrow{
+    position: absolute;    
+    top: 454px;
+    width: 52px;
+    height: 52px;
+    background: transparent;
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;    
+}
+button.arrow.left{
+    left:43px;  
+}
+button.arrow.right{
+right: 43px;    
+}
+/* ---------------- Донат------------- */
