@@ -9,7 +9,6 @@ html,body{
     height: 100%;
     overflow-x: hidden; 
 }
-
 a {
     text-decoration: none;
 }
@@ -18,12 +17,12 @@ ul{
 }
 /* --------для всей страницы--------- */
 .content{    
-    padding-left: 10px;
-    padding-right: 10px;
-    position: relative;
+    padding-left: 40px;
+    padding-right:40px;    
     display: flex;
-    flex-direction: column; 
-    justify-content: center;    
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1280px;    
 }
 @font-face {
     font-family: Arial;
@@ -44,118 +43,71 @@ ul{
     font-weight:400;
 }
 h2 {
-    font:normal 400 25px/1.3em Georgia;
-    letter-spacing: 0.06em;        
+    font:normal 400 35px/1.3em Georgia;   
+    color: #545454;
+    letter-spacing: 0.06em;
 }
 h3 {
-    font:normal 400 20px/1em Georgia;
-    letter-spacing: 0.06em;
+    font:normal 400 20px/1.15em Georgia;   
     color: #545454;
+    letter-spacing: 0.06em;
+
 }
 p {
     font:normal 400 15px/1.6em Arial;    
 }
-/* ---------заголовок и стартовый экран--------- */
+/* ------------- фон блоков ------------------------ */
 .start_screen, #footer{    
     background:url(../../assets/images/background.png),radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) center round;
 }
-.header{    
-    margin-top: 31px;    
-    transition: right 3s ease 0s;     
+.about, .help{
+    background-color: #FFFFFF; 
 }
-h1,.sub_mob_menu a{
+.pets, .donation {
+    background-color: #F6F6F6;    
+}
+/* ----------для содержимого блоков------------ */
+.about_content,.pets_content,#help_block,.donation_content{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+/* -----------заголовок и блок Start-screen---------- */
+.shadow,#burger_menu,.btn_burger,.sub_mob_menu{
+    display: none;
+}
+.header_title{    
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;   
+}
+.sub_header{
+    margin-top: 61px;
+}
+h1{
     font: normal 400 32px/1.1em Georgia;
     letter-spacing: 0.06em;
     color: #F1CDB3; 
 }
-
-.sub_header p, .sub_mob_menu p{
+.sub_header p{
     padding-left: 4px;
     font: normal 400 13px/1.15em Arial;
     letter-spacing: 0.10em;
     color: #FFFFFF;
     padding-top:10px;
 }
-/* -------- для бургер-меню------ */
-#burger_menu{
-    display: none;    
+.menu{
+    margin-top: 55px;
+    display: inline-block;
 }
-body.push{
-    box-sizing: border-box;
-    overflow: hidden;
-}
-label{    
-    display: block;
-    position: absolute;
-    width: 30px;
-    height: 22px;
-    right: 53px;
-    top: 49px;
-    cursor: pointer;
-    transition: all 0.5s ease 0s;
-    z-index: 5;   
-}
-.btn_burger:before,
-.btn_burger:after{
-    content: ' ';
-    background-color: #F1CDB3;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    right: 0;
-}
-.btn_burger:before{
-    top: 0;
-}
-.btn_burger:after{
-    bottom: 0;
-}
-.btn_burger span{     
-    background-color: #F1CDB3;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    top: 10px;
-    right: 0;
-}
-.menu{ 
-    display: block;  
-    position: absolute;
-    right:-100%;
-    height: 100vh;    
-    top: 0;    
-    background-color: #292929;
-    transition:0.5s;
-    max-width: 320px;
-    min-width: 320px;
-    overflow: auto;       
-}
-.sub_mob_menu{
-    padding-top: 31px;
-    padding-left: 10px;    
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 159px;
-    text-align: center; 
-}
-.sub_mob_menu a{
-    text-decoration: none;
-    font: normal 400 32px/1.1em Georgia;
-    letter-spacing: 0.06em;
-    color: #F1CDB3;
-}
-
 .menu ul{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding-left: 39px;
-    padding-right: 38px;
+    gap: 36px;
 }
 .menu li {    
-    font:normal 400 32px/1.6em Arial;    
+    font:normal 400 15px/1.6em Arial;    
     color: #FAFAFA;    
 }
 .link {
@@ -171,50 +123,24 @@ label{
     border-bottom: 3px solid #F1CDB3;
     color:#FAFAFA;
 }
-#burger_menu:checked ~ label{
-    transform: rotate(-90deg);
-    right: 54px;
-    top:50px;
-}
-#burger_menu:checked ~ .header > .header_title > .sub_header{
-    display: none;    
-}
-
-#burger_menu:checked ~ .header > .header_title >.menu{
-    display: block;
-    right: 0;
-    z-index: 2;
-    transition:0.5s;    
-}
-#burger_menu:checked ~ .shadow{
-    position: absolute;
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(41,41,41,0.6);
-    z-index: 0;
-    top: 0;
-    left: 0;    
-    overflow: hidden;
-}
-
-/* --------стартовый экран-------- */
 .start_screen_content{
-    display: flex;
-    flex-direction: column;
-    margin-top: 59px;
-    align-items: flex-end;
-    text-align: center;    
+    display: flex;    
+    margin-top: 60px;    
+    gap: 42px;       
 }
 .start_text{
     display: flex;
     flex-direction: column;
-    align-items: center;    
-    text-align: center; 
-    gap: 42px;    
+    gap: 42px;
+    max-width: 38.334%;
+    margin-top: 163px;
+    align-items: flex-start;   
 }
 .start_text h2{       
-    color: #FFFFFF;    
+    color: #FFFFFF;
+    letter-spacing: 0em;
+    font:normal 400 44px/1.3em Georgia;
+
 }
 .start_text p{      
     color: #CDCDCD;
@@ -222,115 +148,111 @@ label{
 
 .start_img{
     display: flex;    
-    max-width: 86.67%;
-    margin-top: 105px;
+    max-width: 58.2%;       
 }
 .start_img img{    
     width: 100%;
     height: 100%;
 }
-/* ---------- кнопки------------- */
+.btn_make_friends{
+    display: flex;
+    width: 207px;
+    height: 52px;
+    justify-content: center;
+    align-items: center;    
+}
 .btn_make_friends,.btn_get_to_know{    
     font:normal 400 17px/1.3em Georgia;
     letter-spacing: 0.06em;    
-    padding: 15px 45px 15px 45px;
     border-radius: 100px;     
     color:#292929;
-    background:#F1CDB3;
-    text-decoration: none;
+    background:#F1CDB3;    
 }
 .btn_make_friends:hover,
 .btn_get_to_know:hover{
     background: #FDDCC4;
 }
-/* ------------ блок about ---------- */
-.about, .help{
-    background-color: #FFFFFF; 
-}
-.about_content{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    margin-top: 42px;
-    margin-bottom: 42px;
-    text-align: center;
-    gap: 41px;
+/* -----------блок About------------ */
+.about_content{    
+    gap: 120px;
+    justify-content: center;
+    
 }
 .about_text{
     display: flex;
     flex-direction: column;
-    gap: 23px;
-    text-align: justify;
-    padding-left: 15px;
-    padding-right: 15px;
+    gap: 25px;
+    max-width: 35.834%;
+}
+.about_text p{
     color: #4C4C4C;
 }
 .about_text h2{
-    color: #545454;
-    text-align: center;
+    letter-spacing: 0.06em;
 }
 .about_img{
-    display: flex; 
-    max-width: 86.67%;    
+    display: flex;
+    max-width: 42.373%;
 }
 .about_img img{
     width: 100%;
     height: 100%;
 }
-/* --------- Блок Our friends ---------- */
-.pets, .donation {
-    background-color: #F6F6F6;    
+/* --------блок питомцев-------- */
+.pets_content{
+    flex-direction: column;
+    gap: 60px;
+}
+#pets_title {    
+    text-align: center;
 }
 
-.pets_content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 42px;
-    margin-bottom: 42px;
-    text-align: center;
-    color:#545454;
-    gap: 42px;   
-}
-.pets_slider_content{
+/*---------слайдер---------  */
+.pets_content{   
+    text-align: center;    
+    gap: 59px;
     position: relative;   
-    overflow: hidden; 
+}
+.pets_slider_content{    
+    overflow: hidden;
+    display: flex;
+    width: 990px;
 }
 .slider_wrap{
    position: relative;
-   width: 270px;
-    height: 507px;    
+   width: 990px;
+   height: 435px;
+   left: 0px;      
 }
-
 .slider{
     display: flex;       
-    width: 270px;    
+    width: 990px;    
     position: absolute;
     left: 0px;
-    top: 0;  
+    top: 0;
+    gap: 90px;    
 }
 div.slider.left{
     display: flex;  
     transition: 2s;    
-    width: 270px;    
+    width: 990px;    
     position: absolute;
-    left: -270px;
+    left: -990px;
     top: 0;
 }
  div.slider.right{
     display: flex;    
-    left: 270px;
+    left: 990px;
     transition: 2s;    
-    width: 270px;    
+    width: 990px;    
     position: absolute;    
     top: 0;
 } 
-
 .card{
     display: flex;
     width: 100%;
     flex-direction: column;
-    gap: 31px;
+    gap: 29px;
     border-radius: 9px;
     align-items: center;
     padding-bottom: 30px;
@@ -338,7 +260,6 @@ div.slider.left{
     background-color: #FAFAFA;
     cursor: pointer;              
 }
-
 .card:hover {
     cursor: pointer;
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);   
@@ -361,7 +282,7 @@ div.slider.left{
 }
 .arrow{
     position: absolute;    
-    top: 454px;
+    top: 341px;
     width: 52px;
     height: 52px;
     background: transparent;
@@ -376,15 +297,15 @@ div.slider.left{
 
 }
 button.arrow.left{
-    left:43px;  
+    left:0px;  
 }
 button.arrow.right{
-    right: 43px;    
+    right: 0px;    
 }
 
 @keyframes move-right{
     from{left: 0px;}
-    to { left: -270px;}    
+    to { left: -990px;}    
 }
 .transition-right{
     animation-name: move-right;
@@ -392,20 +313,22 @@ button.arrow.right{
 }
 @keyframes move-left{
     from{left: 0px;}
-    to { left: 270px;}    
+    to { left: 990px;}    
 }
 .transition-left{
     animation-name: move-left;
     animation-duration: 0.5s;
 }
 
-.slider >:nth-child(1){
-    display: none;
+.btn_get_to_know{
+    display: flex;
+    width: 260px;
+    height: 52px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
-.slider>:nth-child(3){
-    display: none;
-}
-/* ----------------Модальное окно------------- */
+/* -----------модальное окно------------ */
 .popup{
     display: none;
     position: fixed;
@@ -421,28 +344,38 @@ button.arrow.right{
     min-height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
 }
 div.popup.active{
     display: block;
     cursor: pointer;     
 }
-
 .popup_content{ 
     position: relative;    
     cursor: default;
-       
+    display: flex;
+    width: 900px;
+    height: 500px;   
+    border-radius: 9px;
+    background-color: #FFFFFF;    
 }
 .popup_img{
-    display: none;
+    display: flex;
+    width: 500px;
+    border-radius: 9px;
+    overflow: hidden;
+}
+.popup_img img{
+    width: 100%;
+    height:100%;    
 }
 .popup_text{    
-    width: 240px;    
-    text-align: center;
+    width: 400px;    
+    text-align: left;
     background-color: #FFFFFF;    
-    padding: 10px;
-    border-radius: 9px;
-    color: #000000;  
+    padding: 50px 20px 88px 29px;
+    color: #000000;
+    border-radius: 9px;    
 }
 
 .popup_text h3{
@@ -450,22 +383,25 @@ div.popup.active{
     font:normal 400 35px/1.3em Georgia;
     letter-spacing: 0.06em;
     margin: 0 auto;    
-    padding-bottom: 10px;
+    padding-bottom: 10px;    
 }
 .popup_text h4{    
     font:normal 400 20px/1.15em Georgia;
     letter-spacing: 0.06em;
-    padding-bottom: 20px;
+    padding-bottom: 42px;
 }
 .popup_text p{   
-    font:normal 400 13px/1.10em Georgia;
+    font:normal 400 15px/1.10em Georgia;
     letter-spacing: 0.06em;
     text-align: justify;
-    padding-bottom: 24px;    
+    padding-bottom: 42px;    
 }
 .popup_text ul{
     text-align: left;
-    padding-left: 20px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .popup_text span{
     color: #000000; 
@@ -482,13 +418,13 @@ div.popup.active{
     width: 52px;
     height: 52px;
     border: 2px solid #F1CDB3;
-    border-radius: 100px;
-    margin-left: 218px;
+    border-radius: 100px;    
     background: transparent;
     cursor: pointer;
     position: absolute;
-    top:-50px;
-    z-index: 2;   
+    top: -52px;
+    z-index: 2;
+    margin-left: 890px;  
 }
 .btn_modal_win img{    
     width: 23%;
@@ -498,33 +434,27 @@ div.popup.active{
     background: #FDDCC4;
     border: #FDDCC4;
 }
-/* -------------Блок Help----------------- */
+/* ------------ Блок Help------------- */
 #help_block{
-    display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 42px;
-    margin-bottom: 42px;
+    gap: 59px;    
+}
+.help_title{
     text-align: center;
-    color:#545454;
-    gap: 42px;
 }
-.help_list{
-    display: flex;
+.help_list{    
+    display: flex;    
     flex-wrap: wrap;
-    justify-content: space-between;    
-    margin-left:5px;
-    margin-right:5px;
-    max-width: 96.8%;
-    gap: 30px;
+    max-width: 85.4%;
+    justify-content: center;
+    row-gap: 55px;
+    column-gap: 119px;
 }
-.list{
+
+.list{    
     display: flex;
     flex-direction: column;    
-    align-items: center;   
-    max-width: 44.83%;
-    min-width: 44.83%;     
+    align-items: center; 
 }  
 
 .list_img{
@@ -532,91 +462,84 @@ div.popup.active{
            
 }
 .list_img img{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 .list p{
-    font:normal 400 15px/1.1em Georgia;
-    letter-spacing: 0.06em;           
-    padding-top: 20px;     
+    font:normal 400 20px/1.15em Georgia;
+    letter-spacing: 0.06em;
+    color: #545454;           
+    padding-top: 30px;     
 }
 /* -------------Блок Donation----------------- */
-.donation_content{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    margin-top: 42px;
-    margin-bottom: 42px;
-    text-align: center;
+.donation_content{     
+    justify-content: center;    
+    text-align: left;
     color:#545454;
-    gap: 42px;   
+    gap: 30px; 
 }
 
 .donation_content_info{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
+    gap: 20px;    
+    max-width: 31.667%;
 }
 .donation_content_info h4{
-    font:normal 400 15px/1.6em Georgia;
+    font:normal 400 15px/1.1em Georgia;
+    letter-spacing: 0.06em;
 }
 .credit_card{ 
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 281px;
+    width: 349px;
     height: 43px;
     background: #F1CDB3;
     border-radius: 9px;
-    font:normal 400 15px/1.1em Georgia;
+    font:normal 400 20px/1.15em Georgia;
     letter-spacing: 0.06em;
     color: #545454;    
 }
 
 .donation_content_info p{
-    font:italic 400 12px/1.5em Arial;
-    text-align: justify;
-    margin-left: 10px;
-    margin-right: 10px;
+    font:italic 400 12px/1.5em Arial;    
     color: #B2B2B2;
 }
-.donation_img,.footer_img{
+.donation_img{
     display: flex;
-    max-width: 86.67%;
+    max-width: 43%;
 }
-.donation_img img,.footer_img img{
+/* .donation_img img{
     width: 100%;
     height: 100%;
-}
+} */
 /* ------------- Footer---------------- */
 
 .footer_content{
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;    
-    gap: 40px;
+    display: flex;    
+    margin-top: 40px;
+    gap: 64px;
     align-items: center;    
 }
 .footer_content_info{
-    display: flex;
-    flex-direction: column;       
-    gap: 40px;    
-    text-align: center;
+    display: flex;    
+    gap: 160px;    
+    text-align: left;    
+    margin-top:16px;    
 }
 .contacts{
     display: flex;
     flex-direction: column;       
     gap: 40px;
-    align-items: center;
+    align-items: flex-start;
+    max-width:33.4%;
+    margin-bottom: 60px;
 }
 .footer_content_info h2{
-font: normal 400 25px/1.3em Georgia;
+font: normal 400 35px/1.3em Georgia;
 letter-spacing: 0.06em;
 color: #FFFFFF;
-margin: 0 auto;
-padding-left: 15px;
-padding-right: 15px;
 }
 .contacts img{
     width: 40px;
@@ -631,8 +554,10 @@ padding-right: 15px;
 .locations{
     display: flex;
     flex-direction: column;       
-    gap: 40px;
-    align-items: flex-start;    
+    gap: 33px;
+    align-items: flex-start;
+    max-width:36%;
+    margin-bottom: 60px;   
 }
 .locations a{
     display: flex;    
@@ -644,5 +569,10 @@ padding-right: 15px;
     font: normal 400 20px/1.15em Georgia;
     letter-spacing: 0.06em;
     color:#F1CDB3;  
+}  
+.footer_img{
+    display: flex;    
 }
+
+
 
