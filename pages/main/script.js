@@ -338,10 +338,7 @@ function showModalWin (event){
         }        
     }    
     let modalWinCard = cards[currentCardIndex];    
-    // document.querySelectorAll('.popup').forEach(element =>{
-    //         element.remove();
-    // });
-    // document.querySelectorAll('.popup').remove();
+   
     let showModalWinCard = createModalWin(modalWinCard);
     body.append(showModalWinCard);
     let modalWindow = document.querySelector('.popup');

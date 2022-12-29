@@ -1,0 +1,433 @@
+/* --------Обнуление-------- */
+*,*::after,*::before{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    overflow-x: hidden; 
+}
+a {
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+/* --------для всей страницы--------- */
+.content{    
+    padding-left: 40px;
+    padding-right:40px;    
+    display: flex;
+    flex-direction: column;    
+}
+@font-face {
+    font-family: Arial;
+    src: url(../../assets/fonts/ArialMT.ttf);
+    font-style:normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Arial;
+    src: url(../../assets/fonts/Arial-ItalicMT.ttf);
+    font-style:italic;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Georgia;
+    src: url(../../assets/fonts/Georgia.ttf);
+    font-style:normal;
+    font-weight:400;
+}
+h2 {
+    font:normal 400 35px/1.3em Georgia;   
+    color: #545454;
+    letter-spacing: 0.06em;
+}
+h3 {
+    font:normal 400 20px/1.15em Georgia;   
+    color: #545454;
+    letter-spacing: 0.06em;
+
+}
+p {
+    font:normal 400 13px/1.15em Arial;
+    letter-spacing: 0.1em 
+}
+#burger_menu,.sub_mob_menu{
+    display: none;
+}
+/*------------заголовок ----------------*/
+.header{   
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    z-index: 10;
+    display: flex;   
+    background-color: #FFFFFF;    
+    display: flex;    
+    justify-content: space-between;    
+}
+.sub_header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 31px;
+    margin-bottom: 30px;
+    margin-left: 40px;    
+}
+.sub_header p{
+    margin-left: 4px;
+}
+h1{
+    font:normal 400 32px/1.1em Georgia;
+    letter-spacing: 0.06em;
+    color: #545454;  
+}
+.menu{
+    margin-top: 46px;
+    display: inline-block;    
+    right: 0;
+    margin-right: 40px;
+}
+.menu ul{
+    display: flex;
+    gap: 36px;
+}
+.menu li {    
+    font:normal 400 15px/1.6em Arial;    
+    color: #545454;    
+}
+.link {
+    color: #545454;
+    cursor: pointer;   
+}
+.link:hover{
+    color:#292929;
+    cursor: pointer;
+}
+.link span{
+    padding-bottom: 5px;
+    border-bottom: 3px solid #F1CDB3;
+    color:#292929;
+}
+/* ------------ страница------------- */
+.page_wrap{
+    margin-top: 120px;
+    background-color: #F6F6F6;    
+}
+.page{
+    display: flex;
+    flex-direction: column;    
+    margin-top: 80px;
+    margin-bottom: 76px;
+    text-align: center;
+    color:#545454;
+    gap: 45px;    
+}
+.slide_wrap{
+    display: flex;    
+    align-items: center;
+    position: relative;
+    width: 1200px;
+    height: 930px;    
+    z-index: 2;
+    margin-top: 15px;
+    margin-bottom: 15px;    
+ }
+.slide{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 42px;
+    margin: 0 auto;    
+    position: relative;
+    width: 1200px;    
+    overflow: hidden; 
+}
+.buttons{
+    margin-top: 0px;
+    display: flex;
+    position: relative;
+    bottom: 0;    
+    gap: 20px;    
+}
+
+.slider{
+    display: flex;    
+    flex-wrap: wrap;
+    row-gap: 31px;
+    column-gap: 40px;
+    position: absolute;
+    left: 0px;
+    top: 0; 
+    width: 1200px;    
+}
+
+div.slider.left{
+    display: flex;       
+    width: 1200px;    
+    position: absolute;
+    left: -1200px;
+    top: 0;
+}
+ div.slider.right{
+    display: flex;    
+    left: 1200px;       
+    width: 1200px;    
+    position: absolute;    
+    top: 0;
+} 
+
+button{
+    width: 52px;
+    height: 52px;
+    border-radius: 100px;
+    border: 2px solid #F1CDB3;
+    background: transparent;
+    font:normal 400 20px/1.15em Georgia;
+    letter-spacing: 0.06em;
+    color: #545454;
+    cursor: pointer; 
+}
+.number{
+    background-color: #F1CDB3;
+    cursor: default;
+}
+button:disabled{
+    color: #CDCDCD;
+    border: 2px solid #CDCDCD;
+    cursor: default;
+    background-color: transparent;
+}
+
+
+.btn:hover{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+}
+
+.card{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 9px;
+    align-items: center;
+    padding-bottom: 30px;    
+    background-color: #FAFAFA;
+    cursor: pointer;
+    width: 270px;              
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);   
+}
+.learn_more{
+    width: 187px;
+    height: 52px;    
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+    background-color: transparent;
+    font:normal 400 17px/1.3em Georgia;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+}
+.learn_more:hover{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+    cursor: pointer;
+    color: #292929
+}
+
+@keyframes move-right{
+    from{left: 0px;}
+    to { left: -1200px;}    
+}
+.transition-right{
+    animation-name: move-right;
+    animation-duration: 0.5s;
+}
+@keyframes move-left{
+    from{left: 0px;}
+    to { left: 1200px;}    
+}
+.transition-left{
+    animation-name: move-left;
+    animation-duration: 0.5s;
+}
+/* -----------модальное окно------------ */
+.popup{
+    display: none;
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(41,41,41,0.6);
+    z-index: 13;       
+}
+.popup_body{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+div.popup.active{
+    display: block;
+    cursor: pointer;     
+}
+.popup_content{ 
+    position: relative;    
+    cursor: default;
+    display: flex;
+    width: 900px;
+    height: 500px;   
+    border-radius: 9px;
+    background-color: #FFFFFF;    
+}
+.popup_img{
+    display: flex;
+    width: 500px;
+    border-radius: 9px;
+    overflow: hidden;
+}
+.popup_img img{
+    width: 100%;
+    height:100%;    
+}
+.popup_text{    
+    width: 400px;    
+    text-align: left;
+    background-color: #FFFFFF;    
+    padding: 50px 20px 88px 29px;
+    color: #000000;
+    border-radius: 9px;    
+}
+
+.popup_text h3{
+    color: #000000; 
+    font:normal 400 35px/1.3em Georgia;
+    letter-spacing: 0.06em;
+    margin: 0 auto;    
+    padding-bottom: 10px;    
+}
+.popup_text h4{    
+    font:normal 400 20px/1.15em Georgia;
+    letter-spacing: 0.06em;
+    padding-bottom: 42px;
+}
+.popup_text p{   
+    font:normal 400 15px/1.10em Georgia;
+    letter-spacing: 0.06em;
+    text-align: justify;
+    padding-bottom: 42px;    
+}
+.popup_text ul{
+    text-align: left;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.popup_text span{
+    color: #000000; 
+    font:normal 400 15px/1.10em Georgia;
+    letter-spacing: 0.06em;    
+}
+.popup_text li{   
+    list-style: disc;  
+    color: #F1CDB3;   
+}
+.btn_modal_win{
+    display: flex;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;    
+    background: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: -52px;
+    z-index: 2;
+    margin-left: 890px;  
+}
+.btn_modal_win img{    
+    width: 23%;
+    z-index: 3;    
+}
+.btn_modal_win:hover{
+    background: #FDDCC4;
+    border: #FDDCC4;
+}
+
+
+/* ------------- Footer---------------- */
+
+.footer_content{
+    display: flex;    
+    margin-top: 40px;
+    gap: 64px;
+    align-items: center;    
+}
+.footer_content_info{
+    display: flex;    
+    gap: 160px;    
+    text-align: left;    
+    margin-top:16px;    
+}
+.contacts{
+    display: flex;
+    flex-direction: column;       
+    gap: 40px;
+    align-items: flex-start;
+    max-width:33.4%;
+    margin-bottom: 60px;
+}
+.footer_content_info h2{
+font: normal 400 35px/1.3em Georgia;
+letter-spacing: 0.06em;
+color: #FFFFFF;
+}
+.contacts img{
+    width: 40px;
+    height: 32px;
+}
+
+.contacts a{
+    display: flex;    
+    gap: 20px;
+    align-items: center;   
+}
+.locations{
+    display: flex;
+    flex-direction: column;       
+    gap: 33px;
+    align-items: flex-start;
+    max-width:36%;
+    margin-bottom: 60px;   
+}
+.locations a{
+    display: flex;    
+    gap: 19px;
+    align-items: center;
+    text-align: left;    
+}
+.contacts h4,.locations h4{
+    font: normal 400 20px/1.15em Georgia;
+    letter-spacing: 0.06em;
+    color:#F1CDB3;  
+}  
+.footer_img{
+    display: flex;    
+}
+
+#footer{    
+    background:url(../../assets/images/background.png),radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) center round;
+}
+

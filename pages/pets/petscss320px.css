@@ -48,57 +48,64 @@ h2 {
     letter-spacing: 0.06em;        
 }
 h3 {
-    font:normal 400 20px/1em Georgia;
+    font:normal 400 20px/1.15em Georgia;
     letter-spacing: 0.06em;
     color: #545454;
 }
 p {
-    font:normal 400 15px/1.6em Arial;    
+    font:normal 400 13px/1.15em Arial;
+    letter-spacing: 0.1em 
 }
-/* ---------заголовок и стартовый экран--------- */
-.start_screen, #footer{    
-    background:url(../../assets/images/background.png),radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) center round;
+/* ---------заголовок --------- */
+.header{   
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    z-index: 10;
+    display: flex;   
+    background-color: #FFFFFF;
 }
-.header{    
-    margin-top: 31px;    
-    transition: right 3s ease 0s;     
+.sub_header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 31px;
+    margin-bottom: 30px;
+    margin-left: 10px;    
 }
-h1,.sub_mob_menu a{
-    font: normal 400 32px/1.1em Georgia;
+.sub_header p{
+    margin-left: 4px;
+}
+h1{
+    font:normal 400 32px/1.1em Georgia;
     letter-spacing: 0.06em;
-    color: #F1CDB3; 
-}
-
-.sub_header p, .sub_mob_menu p{
-    padding-left: 4px;
-    font: normal 400 13px/1.15em Arial;
-    letter-spacing: 0.10em;
-    color: #FFFFFF;
-    padding-top:10px;
+    color: #545454;  
 }
 /* -------- для бургер-меню------ */
 #burger_menu{
-    display: none;    
+    display: none;
 }
+
 body.push{
     box-sizing: border-box;
     overflow: hidden;
 }
 label{    
     display: block;
-    position: absolute;
+    position: fixed;
     width: 30px;
     height: 22px;
     right: 53px;
     top: 49px;
     cursor: pointer;
     transition: all 0.5s ease 0s;
-    z-index: 5;   
+    z-index: 11;   
 }
 .btn_burger:before,
 .btn_burger:after{
     content: ' ';
-    background-color: #F1CDB3;
+    background-color: #000000;
     position: absolute;
     width: 100%;
     height: 2px;
@@ -111,7 +118,7 @@ label{
     bottom: 0;
 }
 .btn_burger span{     
-    background-color: #F1CDB3;
+    background-color: #000000;
     position: absolute;
     width: 100%;
     height: 2px;
@@ -138,6 +145,13 @@ label{
     align-items: flex-start;
     padding-bottom: 159px;
     text-align: center; 
+}
+.sub_mob_menu p{
+    padding-left: 4px;
+    font: normal 400 13px/1.15em Arial;
+    letter-spacing: 0.10em;
+    color: #FFFFFF;
+    padding-top:10px;
 }
 .sub_mob_menu a{
     text-decoration: none;
@@ -174,8 +188,18 @@ label{
 #burger_menu:checked ~ label{
     transform: rotate(-90deg);
     right: 54px;
-    top:50px;
+    top:50px;    
 }
+#burger_menu:checked ~ label > span{     
+    background-color: #F1CDB3;   
+}
+#burger_menu:checked ~ .btn_burger::before{     
+    background-color: #F1CDB3;   
+}
+#burger_menu:checked ~ .btn_burger:after{
+    background-color: #F1CDB3;   
+}
+
 #burger_menu:checked ~ .header > .header_title > .sub_header{
     display: none;    
 }
@@ -196,122 +220,66 @@ label{
     top: 0;
     left: 0;    
     overflow: hidden;
+    z-index: 10;
 }
 
-/* --------стартовый экран-------- */
-.start_screen_content{
-    display: flex;
-    flex-direction: column;
-    margin-top: 59px;
-    align-items: flex-end;
-    text-align: center;    
-}
-.start_text{
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    text-align: center; 
-    gap: 42px;    
-}
-.start_text h2{       
-    color: #FFFFFF;    
-}
-.start_text p{      
-    color: #CDCDCD;
-}
 
-.start_img{
-    display: flex;    
-    max-width: 86.67%;
-    margin-top: 105px;
-}
-.start_img img{    
-    width: 100%;
-    height: 100%;
-}
-/* ---------- кнопки------------- */
-.btn_make_friends,.btn_get_to_know{    
-    font:normal 400 17px/1.3em Georgia;
-    letter-spacing: 0.06em;    
-    padding: 15px 45px 15px 45px;
-    border-radius: 100px;     
-    color:#292929;
-    background:#F1CDB3;
-    text-decoration: none;
-}
-.btn_make_friends:hover,
-.btn_get_to_know:hover{
-    background: #FDDCC4;
-}
-/* ------------ блок about ---------- */
-.about, .help{
-    background-color: #FFFFFF; 
-}
-.about_content{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    margin-top: 42px;
-    margin-bottom: 42px;
-    text-align: center;
-    gap: 41px;
-}
-.about_text{
-    display: flex;
-    flex-direction: column;
-    gap: 23px;
-    text-align: justify;
-    padding-left: 15px;
-    padding-right: 15px;
-    color: #4C4C4C;
-}
-.about_text h2{
-    color: #545454;
-    text-align: center;
-}
-.about_img{
-    display: flex; 
-    max-width: 86.67%;    
-}
-.about_img img{
-    width: 100%;
-    height: 100%;
-}
-/* --------- Блок Our friends ---------- */
-.pets, .donation {
+
+
+/* --------страница-------- */
+.page_wrap{
+    margin-top: 120px;
     background-color: #F6F6F6;    
 }
-
-.pets_content{
+.page{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;    
     margin-top: 42px;
     margin-bottom: 42px;
     text-align: center;
     color:#545454;
-    gap: 42px;   
+    gap: 42px;    
 }
-.pets_slider_content{
-    position: relative;   
+.slide_wrap{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+    width: 270px;
+    height: 1365px;    
+    margin-left: 15px;
+    margin-right: 15px; 
+    z-index: 5;    
+ }
+.slide{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 42px;
+    margin: 0 auto;    
+    position: relative;
+    width: 300px;
     overflow: hidden; 
 }
-.slider_wrap{
-   position: relative;
-   width: 270px;
-    height: 507px;    
+.buttons{
+    display: flex;
+    position: relative;
+    bottom: 0;    
+    gap: 10px;    
 }
 
 .slider{
-    display: flex;       
-    width: 270px;    
+    display: flex;    
+    flex-direction: column;
+    gap: 30px;
     position: absolute;
     left: 0px;
-    top: 0;  
+    top: 0; 
+    width: 270px;    
 }
+
 div.slider.left{
-    display: flex;  
-    /* transition: 2s;     */
+    display: flex;       
     width: 270px;    
     position: absolute;
     left: -270px;
@@ -319,22 +287,48 @@ div.slider.left{
 }
  div.slider.right{
     display: flex;    
-    left: 270px;
-    /* transition: 2s;     */
+    left: 270px;       
     width: 270px;    
     position: absolute;    
     top: 0;
 } 
 
+button{
+    width: 52px;
+    height: 52px;
+    border-radius: 100px;
+    border: 2px solid #F1CDB3;
+    background: transparent;
+    font:normal 400 20px/1.15em Georgia;
+    letter-spacing: 0.06em;
+    color: #545454;
+    cursor: pointer; 
+}
+.number{
+    background-color: #F1CDB3;
+    cursor: default;
+}
+button:disabled{
+    color: #CDCDCD;
+    border: 2px solid #CDCDCD;
+    cursor: default;
+    background-color: transparent;
+}
+
+
+.btn:hover{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+}
+
 .card{
     display: flex;
     width: 100%;
     flex-direction: column;
-    gap: 31px;
+    gap: 30px;
     border-radius: 9px;
     align-items: center;
-    padding-bottom: 30px;
-    margin-bottom: 73px;
+    padding-bottom: 30px;    
     background-color: #FAFAFA;
     cursor: pointer;              
 }
@@ -359,28 +353,6 @@ div.slider.left{
     cursor: pointer;
     color: #292929
 }
-.arrow{
-    position: absolute;    
-    top: 454px;
-    width: 52px;
-    height: 52px;
-    background: transparent;
-    border: 2px solid #F1CDB3;
-    border-radius: 100px;
-    cursor: pointer;
-    z-index: 1;   
-}
-.arrow:hover{
-    background-color: #FDDCC4;
-    border:#FDDCC4;
-
-}
-button.arrow.left{
-    left:43px;  
-}
-button.arrow.right{
-    right: 43px;    
-}
 
 @keyframes move-right{
     from{left: 0px;}
@@ -399,11 +371,73 @@ button.arrow.right{
     animation-duration: 0.5s;
 }
 
-.slider >:nth-child(1){
-    display: none;
+
+/* ------------- Footer---------------- */
+
+.footer_content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;    
+    gap: 40px;
+    align-items: center;    
 }
-.slider>:nth-child(3){
-    display: none;
+.footer_content_info{
+    display: flex;
+    flex-direction: column;       
+    gap: 40px;    
+    text-align: center;
+}
+.contacts{
+    display: flex;
+    flex-direction: column;       
+    gap: 40px;
+    align-items: center;
+}
+.footer_content_info h2{
+font: normal 400 25px/1.3em Georgia;
+letter-spacing: 0.06em;
+color: #FFFFFF;
+margin: 0 auto;
+padding-left: 15px;
+padding-right: 15px;
+}
+.contacts img{
+    width: 40px;
+    height: 32px;
+}
+
+.contacts a{
+    display: flex;    
+    gap: 20px;
+    align-items: center;   
+}
+.locations{
+    display: flex;
+    flex-direction: column;       
+    gap: 40px;
+    align-items: flex-start;    
+}
+.locations a{
+    display: flex;    
+    gap: 19px;
+    align-items: center;
+    text-align: left;    
+}
+.contacts h4,.locations h4{
+    font: normal 400 20px/1.15em Georgia;
+    letter-spacing: 0.06em;
+    color:#F1CDB3;  
+}
+#footer{    
+    background:url(../../assets/images/background.png),radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) center round;
+}
+.footer_img{
+    display: flex;
+    max-width: 86.67%;
+}
+.footer_img img{
+    width: 100%;
+    height: 100%;
 }
 /* ----------------Модальное окно------------- */
 .popup{
@@ -415,7 +449,7 @@ button.arrow.right{
     width: 100%;
     height: 100%;
     background-color: rgba(41,41,41,0.6);
-    z-index: 3;       
+    z-index: 13;       
 }
 .popup_body{
     min-height: 100%;
@@ -488,7 +522,7 @@ div.popup.active{
     cursor: pointer;
     position: absolute;
     top:-50px;
-    z-index: 2;   
+    z-index: 14;   
 }
 .btn_modal_win img{    
     width: 23%;
@@ -498,151 +532,3 @@ div.popup.active{
     background: #FDDCC4;
     border: #FDDCC4;
 }
-/* -------------Блок Help----------------- */
-#help_block{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 42px;
-    margin-bottom: 42px;
-    text-align: center;
-    color:#545454;
-    gap: 42px;
-}
-.help_list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;    
-    margin-left:5px;
-    margin-right:5px;
-    max-width: 96.8%;
-    gap: 30px;
-}
-.list{
-    display: flex;
-    flex-direction: column;    
-    align-items: center;   
-    max-width: 44.83%;
-    min-width: 44.83%;     
-}  
-
-.list_img{
-    display: flex;
-           
-}
-.list_img img{
-    width: 50px;
-    height: 50px;
-}
-.list p{
-    font:normal 400 15px/1.1em Georgia;
-    letter-spacing: 0.06em;           
-    padding-top: 20px;     
-}
-/* -------------Блок Donation----------------- */
-.donation_content{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    margin-top: 42px;
-    margin-bottom: 42px;
-    text-align: center;
-    color:#545454;
-    gap: 42px;   
-}
-
-.donation_content_info{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-.donation_content_info h4{
-    font:normal 400 15px/1.6em Georgia;
-}
-.credit_card{ 
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 281px;
-    height: 43px;
-    background: #F1CDB3;
-    border-radius: 9px;
-    font:normal 400 15px/1.1em Georgia;
-    letter-spacing: 0.06em;
-    color: #545454;    
-}
-
-.donation_content_info p{
-    font:italic 400 12px/1.5em Arial;
-    text-align: justify;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #B2B2B2;
-}
-.donation_img,.footer_img{
-    display: flex;
-    max-width: 86.67%;
-}
-.donation_img img,.footer_img img{
-    width: 100%;
-    height: 100%;
-}
-/* ------------- Footer---------------- */
-
-.footer_content{
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;    
-    gap: 40px;
-    align-items: center;    
-}
-.footer_content_info{
-    display: flex;
-    flex-direction: column;       
-    gap: 40px;    
-    text-align: center;
-}
-.contacts{
-    display: flex;
-    flex-direction: column;       
-    gap: 40px;
-    align-items: center;
-}
-.footer_content_info h2{
-font: normal 400 25px/1.3em Georgia;
-letter-spacing: 0.06em;
-color: #FFFFFF;
-margin: 0 auto;
-padding-left: 15px;
-padding-right: 15px;
-}
-.contacts img{
-    width: 40px;
-    height: 32px;
-}
-
-.contacts a{
-    display: flex;    
-    gap: 20px;
-    align-items: center;   
-}
-.locations{
-    display: flex;
-    flex-direction: column;       
-    gap: 40px;
-    align-items: flex-start;    
-}
-.locations a{
-    display: flex;    
-    gap: 19px;
-    align-items: center;
-    text-align: left;    
-}
-.contacts h4,.locations h4{
-    font: normal 400 20px/1.15em Georgia;
-    letter-spacing: 0.06em;
-    color:#F1CDB3;  
-}
-
