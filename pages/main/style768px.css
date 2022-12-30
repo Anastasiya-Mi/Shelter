@@ -263,6 +263,12 @@ div.slider.left{
     cursor: pointer;
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);   
 }
+.card:hover > .learn_more{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+    cursor: pointer;
+    color: #292929;
+}
 .learn_more{
     width: 187px;
     height: 52px;    
@@ -505,7 +511,11 @@ div.popup.active{
     border-radius: 9px;
     font:normal 400 20px/1.15em Georgia;
     letter-spacing: 0.06em;
-    color: #545454;    
+    color: #545454; 
+    text-align: left; 
+}
+.credit_card:hover{
+    background: #FDDCC4;  
 }
 
 .donation_content_info p{

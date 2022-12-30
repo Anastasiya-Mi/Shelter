@@ -59,17 +59,22 @@ p {
     display: none;
 }
 /*------------заголовок ----------------*/
-.header{   
+.header_screen{
+    background-color: #FFFFFF;
     position: fixed;
-    top: 0;
-    left: 0px;
-    width: 100%;
+    margin: 0 auto;
+    height: 120px;
     z-index: 10;
-    display: flex;   
-    background-color: #FFFFFF;    
-    display: flex;    
-    justify-content: space-between;    
+    width: 100vw;
+    top: 0;
+    left: 0px;   
 }
+.header{     
+    z-index: 10;
+    display: flex;      
+    justify-content: space-between;        
+}
+
 .sub_header{
     display: flex;
     flex-direction: column;
@@ -218,6 +223,12 @@ button:disabled{
     background-color: #FAFAFA;
     cursor: pointer;
     width: 270px;              
+}
+.card:hover > .learn_more{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+    cursor: pointer;
+    color: #292929;
 }
 
 .card:hover {

@@ -10,8 +10,10 @@ var menuLink = document.querySelectorAll(".menu a");
 btnCheck.addEventListener('click', function(){
 if (btnCheck.checked){
     body.classList.toggle('push');
+    closeWin.classList.toggle('push')
 } else {
     body.classList.remove('push');
+    closeWin.classList.toggle('push')
 }
 });
 
@@ -19,13 +21,15 @@ closeWin.onclick = function (event) {
     if (event.target == closeWin){
         btnCheck.checked = false;
         body.classList.remove('push');
+        closeWin.classList.toggle('push')
     }  
 }
 
 navMenu.addEventListener ("click", function(event){
     if (event.target.closest(".menu a")){
         btnCheck.checked = false;
-        body.classList.remove('push');  
+        body.classList.remove('push'); 
+        closeWin.classList.toggle('push') 
     }
 });
 

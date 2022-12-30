@@ -9,6 +9,9 @@ html,body{
     height: 100%;
     overflow-x: hidden; 
 }
+.wrap{
+    height: 100%;
+}
 
 a {
     text-decoration: none;
@@ -77,6 +80,20 @@ h1,.sub_mob_menu a{
     padding-top:10px;
 }
 /* -------- для бургер-меню------ */
+.shadow{
+    display: none;
+}
+
+div.shadow.push{
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(41,41,41,0.6);
+    z-index: 4;
+    top: 0;
+    left: 0;    
+}
 #burger_menu{
     display: none;    
 }
@@ -128,7 +145,8 @@ label{
     transition:0.5s;
     max-width: 320px;
     min-width: 320px;
-    overflow: auto;       
+    overflow: auto;
+    z-index: 5;       
 }
 .sub_mob_menu{
     padding-top: 31px;
@@ -175,6 +193,7 @@ label{
     transform: rotate(-90deg);
     right: 54px;
     top:50px;
+    z-index: 6;
 }
 #burger_menu:checked ~ .header > .header_title > .sub_header{
     display: none;    
@@ -183,19 +202,8 @@ label{
 #burger_menu:checked ~ .header > .header_title >.menu{
     display: block;
     right: 0;
-    z-index: 2;
+    z-index: 5;
     transition:0.5s;    
-}
-#burger_menu:checked ~ .shadow{
-    position: absolute;
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(41,41,41,0.6);
-    z-index: 0;
-    top: 0;
-    left: 0;    
-    overflow: hidden;
 }
 
 /* --------стартовый экран-------- */
@@ -337,6 +345,12 @@ div.slider.left{
     margin-bottom: 73px;
     background-color: #FAFAFA;
     cursor: pointer;              
+}
+.card:hover > .learn_more{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+    cursor: pointer;
+    color: #292929;
 }
 
 .card:hover {
@@ -573,7 +587,9 @@ div.popup.active{
     letter-spacing: 0.06em;
     color: #545454;    
 }
-
+.credit_card:hover{
+    background: #FDDCC4;  
+}
 .donation_content_info p{
     font:italic 400 12px/1.5em Arial;
     text-align: justify;

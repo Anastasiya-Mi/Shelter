@@ -9,6 +9,9 @@ html,body{
     height: 100%;
     overflow-x: hidden; 
 }
+/* .wrap{
+    height: 100%;
+} */
 
 a {
     text-decoration: none;
@@ -57,14 +60,20 @@ p {
     letter-spacing: 0.1em 
 }
 /* ---------заголовок --------- */
-.header{   
-    position: fixed;
-    top: 0;
-    left: 0px;
-    width: 100%;
-    z-index: 10;
-    display: flex;   
+.header_screen{
     background-color: #FFFFFF;
+    position: fixed;
+    margin: 0 auto;    
+    z-index: 4;
+    width: 100vw;
+    top: 0;
+    left: 0px;     
+}
+.header{   
+    display: flex;    
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1;       
 }
 .sub_header{
     display: flex;
@@ -86,7 +95,19 @@ h1{
 #burger_menu{
     display: none;
 }
-
+.shadow{
+    display: none;
+}
+div.shadow.push{
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(41,41,41,0.6);
+    z-index: 4;
+    top: 0;
+    left: 0;    
+}
 body.push{
     box-sizing: border-box;
     overflow: hidden;
@@ -100,7 +121,7 @@ label{
     top: 49px;
     cursor: pointer;
     transition: all 0.5s ease 0s;
-    z-index: 11;   
+    z-index: 10;   
 }
 .btn_burger:before,
 .btn_burger:after{
@@ -135,7 +156,8 @@ label{
     transition:0.5s;
     max-width: 320px;
     min-width: 320px;
-    overflow: auto;       
+    overflow: auto;
+           
 }
 .sub_mob_menu{
     padding-top: 31px;
@@ -144,7 +166,8 @@ label{
     flex-direction: column;
     align-items: flex-start;
     padding-bottom: 159px;
-    text-align: center; 
+    text-align: center;
+    z-index: 7; 
 }
 .sub_mob_menu p{
     padding-left: 4px;
@@ -188,7 +211,8 @@ label{
 #burger_menu:checked ~ label{
     transform: rotate(-90deg);
     right: 54px;
-    top:50px;    
+    top:50px;
+    z-index: 10;   
 }
 #burger_menu:checked ~ label > span{     
     background-color: #F1CDB3;   
@@ -200,32 +224,16 @@ label{
     background-color: #F1CDB3;   
 }
 
-#burger_menu:checked ~ .header > .header_title > .sub_header{
+#burger_menu:checked ~ .header >  .sub_header{
     display: none;    
 }
 
-#burger_menu:checked ~ .header > .header_title >.menu{
+#burger_menu:checked ~ .header > .menu{
     display: block;
     right: 0;
-    z-index: 2;
+    z-index: 8;
     transition:0.5s;    
 }
-#burger_menu:checked ~ .shadow{
-    position: absolute;
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(41,41,41,0.6);
-    z-index: 0;
-    top: 0;
-    left: 0;    
-    overflow: hidden;
-    z-index: 10;
-}
-
-
-
-
 /* --------страница-------- */
 .page_wrap{
     margin-top: 120px;
@@ -249,7 +257,7 @@ label{
     height: 1365px;    
     margin-left: 15px;
     margin-right: 15px; 
-    z-index: 5;    
+    z-index: 0;    
  }
 .slide{
     display: flex;
@@ -331,6 +339,12 @@ button:disabled{
     padding-bottom: 30px;    
     background-color: #FAFAFA;
     cursor: pointer;              
+}
+.card:hover > .learn_more{
+    background-color: #FDDCC4;
+    border: 2px solid #FDDCC4;
+    cursor: pointer;
+    color: #292929;
 }
 
 .card:hover {

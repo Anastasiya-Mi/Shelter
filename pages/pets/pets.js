@@ -7,11 +7,20 @@ var closeWin = document.querySelector(".shadow");
 var navMenu = document.querySelector(".menu");
 var menuLink = document.querySelectorAll(".menu a");
 
+const BTN_DBL_LEFT = document.querySelector('.double_left');
+const BTN_LEFT = document.querySelector('.left');
+const BTN_DBL_RIGHT = document.querySelector('.double_right');
+const BTN_RIGHT = document.querySelector('.right');
+const COUNT_PAGE = document.querySelector('.number');
+const CAROUSEL = document.querySelector('.slide_wrap');
+
 btnCheck.addEventListener('click', function(){
 if (btnCheck.checked){
     body.classList.toggle('push');
+    closeWin.classList.toggle('push')
 } else {
     body.classList.remove('push');
+    closeWin.classList.toggle('push')
 }
 });
 
@@ -19,13 +28,15 @@ closeWin.onclick = function (event) {
     if (event.target == closeWin){
         btnCheck.checked = false;
         body.classList.remove('push');
+        closeWin.classList.toggle('push')
     }  
 }
 
 navMenu.addEventListener ("click", function(event){
     if (event.target.closest(".menu a")){
         btnCheck.checked = false;
-        body.classList.remove('push');  
+        body.classList.remove('push'); 
+        closeWin.classList.toggle('push') 
     }
 });
 
@@ -265,7 +276,7 @@ function getSize (num){
 }
 } 
 size = getSize(currentSize);
-console.log(size);
+
 // счетчик
 let count = 1;
 
@@ -279,10 +290,8 @@ function getPageNumber(num){
 }
 
 function trackSize(){
-    let deviceWidth = window.innerWidth;
-    // console.log(deviceWidth, ' перед if');
-    let size2 = getSize (deviceWidth);
-    // console.log(size2, 'size2 перед if');
+    let deviceWidth = window.innerWidth;    
+    let size2 = getSize (deviceWidth);   
     let slide = document.querySelector('.slider');
     if(size2 != size){
         if(size2 === "small"){
@@ -294,6 +303,7 @@ function trackSize(){
         } else if(size2 === "medium"){
             slide.remove();
             showContent(size2);
+
             size = size2;
             console.log(size);
             console.log(currentArr)
@@ -302,6 +312,7 @@ function trackSize(){
             showContent(size2);
             size = "hight";
             console.log(size);
+            console.log(currentArr)
 
         }
     }
@@ -321,8 +332,7 @@ function createSlide (value){
 function showContent(num){
     if(num === "small"){
         currentArr =  arrForThree;
-        let currIndex = count-1;
-        // let firstPageValue = currentArr[0];
+        let currIndex = count-1;        
         let firstPageValue = currentArr[currIndex];
         createSlide(firstPageValue);
         let currentCardPet = document.querySelectorAll('.card');       
@@ -331,23 +341,37 @@ function showContent(num){
 })     
 }else if(num === "medium"){
     currentArr =  arrForSix;
-    let currIndex = count-1;
-        // let firstPageValue = currentArr[0];
-        let firstPageValue = currentArr[currIndex];
-    createSlide(firstPageValue);
+    let arrLength = currentArr.length-1;
+    if(count >= arrLength){
+        count = 8;
+        let page = document.querySelector('.number');
+        page.innerHTML = count;      
+     }
+    let currIndex = count-1;        
+    let firstPageValue = currentArr[currIndex];
+    createSlide(firstPageValue);    
     let currentCardPet = document.querySelectorAll('.card');       
         currentCardPet.forEach(element =>{    
         element.addEventListener('click',showModalWin);
     })             
 } else{
-     currentArr =  arrForEight;
-    let firstPageValue = currentArr[0];
-    createSlide(firstPageValue);
+     currentArr = arrForEight;
+     console.log(currentArr);     
+     let arrLength = currentArr.length-1;
+     if(count >= arrLength){
+        count = 6;
+       let page = document.querySelector('.number');
+       page.innerHTML = count;      
+     }
+     let currIndex = count-1;        
+     let firstPageValue = currentArr[currIndex];
+     createSlide(firstPageValue);
     let currentCardPet = document.querySelectorAll('.card');       
     currentCardPet.forEach(element =>{    
     element.addEventListener('click',showModalWin);
     })
     }
+    getArrLength();
 }
 
 function getValue (arr,arr1){
@@ -421,24 +445,19 @@ function insertElementAtTheEnd (value){
 
 
 //  кнопки
-console.log(currentArr)
-    const BTN_DBL_LEFT = document.querySelector('.double_left');
-    const BTN_LEFT = document.querySelector('.left');
-    const BTN_DBL_RIGHT = document.querySelector('.double_right');
-    const BTN_RIGHT = document.querySelector('.right');
-    const COUNT_PAGE = document.querySelector('.number');
-    const CAROUSEL = document.querySelector('.slide_wrap');
 
-    // let count = 1;
+   
+
+   
     let startValue = 0;
 
 
-    function moveRight(){
-       console.log(count);
-       console.log(currentArr);        
-        startValue =startValue+1;
+    function moveRight(){ 
+        count = count+1;  
+        startValue =count-1;   
+        // startValue =startValue+1;
         let newPage = currentArr[startValue];
-        count = count+1;
+        // count = count+1;
         COUNT_PAGE.innerHTML = count;        
         createSlide (newPage);
         let slider = document.querySelectorAll('.slider');
@@ -452,10 +471,12 @@ console.log(currentArr)
 
     }
 
-    function moveLeft(){        
-        startValue =startValue-1;
+    function moveLeft(){   
+        count = count-1;  
+        startValue =count-1;     
+        // startValue =startValue-1;
         let newPage = currentArr[startValue];
-        count = count-1;
+        // count = count-1;
         COUNT_PAGE.innerHTML = count;        
         createSlide (newPage);
          let slider = document.querySelectorAll('.slider');
