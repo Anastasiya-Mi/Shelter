@@ -156,9 +156,9 @@ let arrForEight = [];
 
 for(let i=1;i<7;i++){
    let newArr = shake();    
-   arrForEight.push(newArr);    
+   arrForEight.push(newArr);   
 }
-// console.log (arrForEight,'для 8 карт');
+
 
 // рандом общий
 
@@ -208,7 +208,7 @@ function getNumber(array){
 }  
 
 let arrSix = getSixNumbers(emptyArr);
-// console.log(arrSix, 'сформировали');
+
 
 let arrForSix = [];
 
@@ -224,7 +224,7 @@ for(let i =0;i<6;i++){
 }
 
 getSixCard (arrSix)
-// console.log(arrForSix,'для 6 карт');
+
 
 
 // для трех карточек
@@ -241,7 +241,7 @@ function getThreeNumbers(array){
 return array;
 }
 let arrThree = getThreeNumbers(emptyArr2);
-// console.log(arrThree, 'сформировали')
+
 
 let arrForThree = [];
 
@@ -473,10 +473,8 @@ function insertElementAtTheEnd (value){
 
     function moveLeft(){   
         count = count-1;  
-        startValue =count-1;     
-        // startValue =startValue-1;
-        let newPage = currentArr[startValue];
-        // count = count-1;
+        startValue =count-1;
+        let newPage = currentArr[startValue];    
         COUNT_PAGE.innerHTML = count;        
         createSlide (newPage);
          let slider = document.querySelectorAll('.slider');
@@ -486,7 +484,7 @@ function insertElementAtTheEnd (value){
          BTN_DBL_LEFT.removeEventListener('click',startOfThePages);
          BTN_DBL_RIGHT.removeEventListener('click',endOfThePages); 
          BTN_RIGHT.removeEventListener('click',moveRight);
-         BTN_LEFT.addEventListener('click',moveLeft);
+         BTN_LEFT.removeEventListener('click',moveLeft);
  
      }
    

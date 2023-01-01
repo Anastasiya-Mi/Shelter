@@ -84,8 +84,7 @@ p {
     flex-direction: column;
     gap: 10px;
     margin-top: 31px;
-    margin-bottom: 30px;
-    margin-left: 40px;   
+    margin-bottom: 30px;   
 }
 .sub_header p{
     margin-left: 4px;
@@ -98,8 +97,7 @@ h1{
 .menu{
     margin-top: 46px;
     display: inline-block;    
-    right: 0;
-    margin-right: 40px;
+    right: 0;    
 }
 .menu ul{
     display: flex;
